@@ -27,7 +27,7 @@ steps:
     args: 
     - '-c'
     - | 
-        cd terraform-serverless && terraform apply -auto-approve
+        cd terraform-serverless && terraform apply -auto-approve -var project=terraform-training-315200
 
 substitutions:
   _SERVICE_FOLDER: terraform-serverless/service
