@@ -27,7 +27,7 @@ steps:
     args: 
     - '-c'
     - | 
-        cd terraform-serverless && terraform apply -auto-approve -var project=terraform-training-315200
+        cd terraform-serverless && chmod a+x scripts/get_latest_tag.sh && terraform apply -auto-approve -var project=terraform-training-315200
 
 substitutions:
   _SERVICE_FOLDER: terraform-serverless/service
