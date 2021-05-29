@@ -19,7 +19,7 @@ steps:
     args: 
     - '-c'
     - |
-        terraform init
+        cd terraform-serverless && terraform init
 
   - id: 'tf apply'
     name: 'hashicorp/terraform:0.15.3'
@@ -27,7 +27,7 @@ steps:
     args: 
     - '-c'
     - | 
-        terraform apply -auto-approve
+        cd terraform-serverless && terraform apply -auto-approve
 
 substitutions:
   _SERVICE_FOLDER: terraform-serverless/service
