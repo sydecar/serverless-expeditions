@@ -12,6 +12,22 @@ steps:
   - id: "push image"
     name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"]
+    
+- id: 'tf init'
+  name: 'hashicorp/terraform:0.15.3'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      terraform init
+
+- id: 'tf apply'
+  name: 'hashicorp/terraform:0.15.3'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - | 
+      terraform apply -auto-approve
 
 substitutions:
   _SERVICE_FOLDER: terraform-serverless/service
